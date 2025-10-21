@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "SEO cơ bản",
+  "description": "Công cụ kiểm tra SEO cơ bản cho website - phân tích title, meta description, heading tags và robots.txt. Giúp SEO specialist và web developer tối ưu hóa trang web một cách nhanh chóng và hiệu quả.",
+  "version": "1.0.0",
+  "author": "Bin.Late",
+  "homepage_url": "https://muabanquyen.com",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Kiểm tra SEO cơ bản - Title, Meta Description, Heading Tags",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
+
