@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>SEO Basic PRO</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>SEO Basic PRO</h1>
+
+    <section class="results-block">
+      <p id="error-msg" hidden></p>
+
+      <div class="score-row">
+        <div id="score-ring" class="score-ring" title="SEO Score">
+          <div class="score-inner">
+            <span id="score-grade">–</span>
+            <span id="score-num">—</span>
+          </div>
+        </div>
+        <div class="score-meta">
+          <div class="counts-line">
+            <span class="pill pill-error">❌ <b id="count-error">0</b></span>
+            <span class="pill pill-warning">⚠️ <b id="count-warning">0</b></span>
+            <span class="pill pill-ok">✅ <b id="count-ok">0</b></span>
+          </div>
+          <p class="stats-line" id="stats-line">Số từ: —</p>
+          <p class="stats-line" id="vitals-line">Vitals: —</p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-tab="overview">Tổng quan</button>
+        <button type="button" class="tab" data-tab="issues">Lỗi</button>
+        <button type="button" class="tab" data-tab="headings">Headings</button>
+        <button type="button" class="tab" data-tab="links">Links</button>
+        <button type="button" class="tab" data-tab="images">Ảnh</button>
+        <button type="button" class="tab" data-tab="preview">Preview</button>
+      </div>
+
+      <div id="tab-overview" class="tab-pane active">
+        <div id="overview-body"></div>
+      </div>
+
+      <div id="tab-issues" class="tab-pane">
+        <div id="results-body"></div>
+      </div>
+
+      <div id="tab-headings" class="tab-pane">
+        <div id="headings-body"></div>
+      </div>
+
+      <div id="tab-links" class="tab-pane">
+        <div id="links-body"></div>
+      </div>
+
+      <div id="tab-images" class="tab-pane">
+        <div id="images-body"></div>
+      </div>
+
+      <div id="tab-preview" class="tab-pane">
+        <div id="preview-body"></div>
+      </div>
+
+      <div class="actions" style="margin-top: 8px">
+        <button type="button" class="secondary" id="refreshBtn">Quét lại</button>
+        <button type="button" class="secondary" id="exportJsonBtn">JSON</button>
+        <button type="button" class="secondary" id="exportTxtBtn">TXT</button>
+        <button type="button" class="secondary" id="exportCsvBtn">CSV</button>
+      </div>
+    </section>
+
+    <section class="quicktools-block">
+      <h2>Công cụ nhanh</h2>
+      <div class="actions">
+        <button type="button" class="secondary tool-btn" id="toolGscBtn">🔍 GSC</button>
+        <button type="button" class="secondary tool-btn" id="toolPsiBtn">⚡ PageSpeed</button>
+        <button type="button" class="secondary tool-btn" id="toolRichBtn">🧪 Rich Results</button>
+        <button type="button" class="secondary tool-btn" id="toolWaybackBtn">🕰️ Wayback</button>
+      </div>
+    </section>
+
+    <details class="settings-block">
+      <summary><h2>Cài đặt</h2></summary>
+      <p class="hint">Chọn cách xem kết quả audit và tùy chọn highlight nofollow.</p>
+
+      <label>
+        <input type="radio" name="displayMode" value="popup" checked />
+        Hiển thị kết quả khi nhấn icon extension (popup)
+      </label>
+      <label>
+        <input type="radio" name="displayMode" value="panel" />
+        Hiển thị panel cố định trên trang
+      </label>
+
+      <label id="position-wrap">
+        Vị trí panel trên trang
+        <select id="panelPosition" aria-label="Vị trí panel">
+          <option value="top-left">Trên — trái</option>
+          <option value="top-center">Trên — giữa</option>
+          <option value="top-right">Trên — phải</option>
+          <option value="bottom-left">Dưới — trái</option>
+          <option value="bottom-center">Dưới — giữa</option>
+          <option value="bottom-right">Dưới — phải</option>
+        </select>
+      </label>
+
+      <label>
+        <input type="checkbox" id="highlightNofollow" checked />
+        Highlight các link nofollow (gạch ngang + nền)
+      </label>
+
+      <label class="row-inline" id="color-wrap">
+        Màu nền link nofollow
+        <input type="color" id="nofollowBgColor" value="#ff5050" title="Màu nền" />
+        <span>Độ mờ</span>
+        <input type="range" id="nofollowBgAlpha" min="0" max="0.5" step="0.01" value="0.12" title="Độ mờ nền (0 = không dùng màu nền)" />
+        <span id="alphaLabel">12%</span>
+      </label>
+
+      <div class="actions">
+        <button type="button" id="saveBtn">Lưu cài đặt</button>
+      </div>
+    </details>
+
+    <script src="defaults.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
